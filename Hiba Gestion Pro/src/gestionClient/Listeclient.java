@@ -12,8 +12,19 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JButton;
+
+import model.Client;
+
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import util.FabriqueSession;
 
 public class Listeclient extends JFrame {
 
@@ -40,7 +51,7 @@ public class Listeclient extends JFrame {
 	 */
 	public Listeclient() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 682, 459);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -49,43 +60,68 @@ public class Listeclient extends JFrame {
 		JLabel label = new JLabel("Liste des clients");
 		label.setForeground(Color.RED);
 		label.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		label.setBounds(140, 11, 144, 28);
+		label.setBounds(260, 35, 144, 28);
 		contentPane.add(label);
 		
 		JButton button = new JButton("Retour");
-		button.setBounds(10, 217, 89, 23);
+		button.setBounds(140, 270, 89, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Modifier");
-		button_1.setBounds(122, 217, 89, 23);
+		button_1.setBounds(252, 270, 89, 23);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Supprimer");
-		button_2.setBounds(221, 217, 89, 23);
+		button_2.setBounds(351, 270, 89, 23);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("Ajouter");
-		button_3.setBounds(335, 217, 89, 23);
+		button_3.setBounds(465, 270, 89, 23);
 		contentPane.add(button_3);
 		
-		Object[][] donnees = {
-                {"stouti"},
-                {"stouti"},
-                {"halabi"},
-                {"stouti"},
-                {"halabi"}
-        };
-		
-		String[] entetes = {"Nom"};
+		int i=0;
+		String[] entetes = {"Nom", "Prenom", "Adresse", "CIN", "Téléphone"};
+		Object[][] donnees = new Object[listerClient().size()][entetes.length];
+		for (Iterator iter = listerClient().iterator(); iter.hasNext();) {
+			Client clt = (Client) iter.next();
+			donnees[i][0] = clt.getNom();
+			donnees[i][1] = clt.getPrenom();
+			donnees[i][2] = clt.getAdresse();
+			donnees[i][3] = clt.getCin();
+			donnees[i][4] = clt.getTel1();
+			i++;
+		}
 		
 		 JTable tableau = new JTable(donnees, entetes);
 //       Ajouter lentete
        contentPane.add(tableau.getTableHeader(), BorderLayout.NORTH);
        contentPane.setLayout(null);
        
-//     Ajouter les données
      JScrollPane scrollPane = new JScrollPane(tableau);
-     scrollPane.setBounds(10, 82, 681, 236);
+     scrollPane.setBounds(54, 74, 531, 185);
      contentPane.add(scrollPane);
+	}
+	
+	private static List listerClient() {
+		Transaction tx = null;
+		Session session = FabriqueSession.getInstance().getCurrentSession();
+		List clients = null;
+		try {
+			tx = session.beginTransaction();
+			SQLQuery sqlQuery = session.createSQLQuery("select * from client");
+			sqlQuery.addEntity(Client.class);
+			clients = sqlQuery.list();
+			tx.commit();
+		} catch (RuntimeException e) {
+			if (tx != null && tx.isActive()) {
+				try {
+					tx.rollback();
+				} catch (HibernateException e1) {
+					e.printStackTrace();
+				}
+				throw e;
+			}
+		}
+		return clients;
 	}
 }
