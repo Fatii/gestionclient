@@ -15,6 +15,9 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class Listeclient extends JFrame {
 
 	private JPanel contentPane;
@@ -53,10 +56,22 @@ public class Listeclient extends JFrame {
 		contentPane.add(label);
 		
 		JButton button = new JButton("Retour");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Menu frameMenu = new Menu();
+				frameMenu.setVisible(true);
+			}
+		});
 		button.setBounds(10, 217, 89, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Modifier");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Modifierclient frameModifierClient = new Modifierclient();
+				frameModifierClient.setVisible(true);
+			}
+		});
 		button_1.setBounds(122, 217, 89, 23);
 		contentPane.add(button_1);
 		
@@ -65,6 +80,12 @@ public class Listeclient extends JFrame {
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("Ajouter");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Ajoutclient frameAjoutClient = new Ajoutclient();
+				frameAjoutClient.setVisible(true);
+			}
+		});
 		button_3.setBounds(335, 217, 89, 23);
 		contentPane.add(button_3);
 		

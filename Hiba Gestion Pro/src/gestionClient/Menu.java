@@ -51,6 +51,12 @@ public class Menu extends JFrame {
 		contentPane.add(lblHibaGestionPro);
 		
 		JButton btnAjoutDunClient = new JButton("Ajouter un client");
+		btnAjoutDunClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Ajoutclient frameAjoutClient = new Ajoutclient();
+				frameAjoutClient.setVisible(true);
+			}
+		});
 		btnAjoutDunClient.setBounds(267, 117, 140, 23);
 		contentPane.add(btnAjoutDunClient);
 		
