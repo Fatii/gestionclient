@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
@@ -26,9 +27,13 @@ import org.hibernate.Transaction;
 
 import util.FabriqueSession;
 
-public class Listeclient extends JFrame {
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class _Listeclient extends JFrame {
 
 	private JPanel contentPane;
+	private JTable tableau;
 
 	/**
 	 * Launch the application.
@@ -37,7 +42,7 @@ public class Listeclient extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Listeclient frame = new Listeclient();
+					_Listeclient frame = new _Listeclient();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +54,7 @@ public class Listeclient extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Listeclient() {
+	public _Listeclient() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 682, 459);
 		contentPane = new JPanel();
@@ -72,6 +77,12 @@ public class Listeclient extends JFrame {
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Supprimer");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(tableau.getSelectedRow() != -1)
+				System.out.println(tableau.getValueAt(tableau.getSelectedRow(), 3));
+			}
+		});
 		button_2.setBounds(351, 270, 89, 23);
 		contentPane.add(button_2);
 		
@@ -80,7 +91,7 @@ public class Listeclient extends JFrame {
 		contentPane.add(button_3);
 		
 		int i=0;
-		String[] entetes = {"Nom", "Prenom", "Adresse", "CIN", "Téléphone"};
+		String[] entetes = {"Nom", "Prénom", "Adresse", "CIN", "Téléphone"};
 		Object[][] donnees = new Object[listerClient().size()][entetes.length];
 		for (Iterator iter = listerClient().iterator(); iter.hasNext();) {
 			Client clt = (Client) iter.next();
@@ -92,7 +103,8 @@ public class Listeclient extends JFrame {
 			i++;
 		}
 		
-		 JTable tableau = new JTable(donnees, entetes);
+		 tableau = new JTable(donnees, entetes);
+		 tableau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 //       Ajouter lentete
        contentPane.add(tableau.getTableHeader(), BorderLayout.NORTH);
        contentPane.setLayout(null);

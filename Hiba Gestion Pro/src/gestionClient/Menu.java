@@ -57,7 +57,7 @@ public class Menu extends JFrame {
 		JButton btnListeDesClients = new JButton("Liste des clients");
 		btnListeDesClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Listeclient frameListeClient = new Listeclient();
+				_Listeclient frameListeClient = new _Listeclient();
 				frameListeClient.setVisible(true);
 			}
 		});
