@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="model.Client" table="client">
+		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+		<property name="nom" column="nom" /><property name="prenom" column="prenom">
+		</property>
+		<property name="adresse" column="adresse"></property>
+		<property name="cin" column="cin"></property>
+		<property name="tel1" column="tel1"></property>
+		<property name="tel2" column="tel2"></property>
+		<property name="tel3" column="tel3"></property>
+		
+		
+	</class>
+</hibernate-mapping>
