@@ -89,15 +89,28 @@ public class Listeclient extends JFrame {
 		button_3.setBounds(335, 217, 89, 23);
 		contentPane.add(button_3);
 		
-		Object[][] donnees = {
-                {"stouti"},
-                {"stouti"},
-                {"halabi"},
-                {"stouti"},
-                {"halabi"}
-        };
+		int i=0;
+		String[] entetes = {"Nom", "Prenom", "Adresse", "CIN", "Téléphone"};
+		Object[][] donnees = new Object[listerClient().size()][entetes.length];
+		for (Iterator iter = listerClient().iterator(); iter.hasNext();) {
+		Client clt = (Client) iter.next();
+		donnees[i][0] = clt.getNom();
+		donnees[i][1] = clt.getPrenom();
+		donnees[i][2] = clt.getAdresse();
+		donnees[i][3] = clt.getCin();
+		donnees[i][4] = clt.getTel1();
+		i++;
+		}
 		
-		String[] entetes = {"Nom"};
+//		Object[][] donnees = {
+//                {"stouti"},
+//                {"stouti"},
+//                {"halabi"},
+//                {"stouti"},
+//                {"halabi"}
+//        };
+//		
+//		String[] entetes = {"Nom"};
 		
 		 JTable tableau = new JTable(donnees, entetes);
 //       Ajouter lentete
