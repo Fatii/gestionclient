@@ -57,7 +57,7 @@ public class Menu extends JFrame {
 				frameAjoutClient.setVisible(true);
 			}
 		});
-		btnAjoutDunClient.setBounds(267, 117, 140, 23);
+		btnAjoutDunClient.setBounds(264, 117, 140, 23);
 		contentPane.add(btnAjoutDunClient);
 		
 		JButton btnListeDesClients = new JButton("Liste des clients");
@@ -67,7 +67,7 @@ public class Menu extends JFrame {
 				frameListeClient.setVisible(true);
 			}
 		});
-		btnListeDesClients.setBounds(28, 117, 117, 23);
+		btnListeDesClients.setBounds(44, 117, 140, 23);
 		contentPane.add(btnListeDesClients);
 	}
 

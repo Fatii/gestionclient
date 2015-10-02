@@ -131,7 +131,7 @@ public class Modifierclient extends JFrame {
 				frameListeClient.setVisible(true);
 			}
 		});
-		btnEnregistrerLesModifications.setBounds(255, 211, 93, 23);
+		btnEnregistrerLesModifications.setBounds(255, 211, 121, 23);
 		contentPane.add(btnEnregistrerLesModifications);
 	}
 

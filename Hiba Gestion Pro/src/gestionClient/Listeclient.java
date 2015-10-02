@@ -76,7 +76,7 @@ public class Listeclient extends JFrame {
 				frameMenu.setVisible(true);
 			}
 		});
-		button.setBounds(186, 253, 89, 23);
+		button.setBounds(69, 253, 89, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Modifier");
@@ -86,7 +86,7 @@ public class Listeclient extends JFrame {
 				frameModifierClient.setVisible(true);
 			}
 		});
-		button_1.setBounds(298, 253, 89, 23);
+		button_1.setBounds(198, 253, 89, 23);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Supprimer");
@@ -96,7 +96,7 @@ public class Listeclient extends JFrame {
 				System.out.println(tableau.getValueAt(tableau.getSelectedRow(), 3));
 			}
 		});
-		button_2.setBounds(397, 253, 89, 23);
+		button_2.setBounds(324, 253, 104, 23);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("Ajouter");
@@ -106,7 +106,7 @@ public class Listeclient extends JFrame {
 				frameAjoutClient.setVisible(true);
 			}
 		});
-		button_3.setBounds(511, 253, 89, 23);
+		button_3.setBounds(476, 253, 89, 23);
 		contentPane.add(button_3);
 		
 		int i=0;
