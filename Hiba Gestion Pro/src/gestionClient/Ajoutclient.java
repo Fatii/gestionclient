@@ -22,6 +22,9 @@ import org.hibernate.Transaction;
 
 import util.FabriqueSession;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class Ajoutclient extends JFrame {
 
 	private JPanel contentPane;
@@ -130,6 +133,13 @@ public class Ajoutclient extends JFrame {
 		textField_6.setColumns(10);
 		
 		JButton btnAjouter = new JButton("Ajouter");
+		btnAjouter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Listeclient frameListeClient = new Listeclient();
+				frameListeClient.setVisible(true);
+			}
+		});
 		btnAjouter.setBounds(269, 216, 89, 23);
 		contentPane.add(btnAjouter);
 	}

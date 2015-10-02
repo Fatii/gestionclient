@@ -7,10 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Modifierclient extends JFrame {
 
@@ -120,6 +125,12 @@ public class Modifierclient extends JFrame {
 		contentPane.add(textField_6);
 		
 		JButton btnEnregistrerLesModifications = new JButton("Enregistrer");
+		btnEnregistrerLesModifications.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Listeclient frameListeClient = new Listeclient();
+				frameListeClient.setVisible(true);
+			}
+		});
 		btnEnregistrerLesModifications.setBounds(255, 211, 93, 23);
 		contentPane.add(btnEnregistrerLesModifications);
 	}

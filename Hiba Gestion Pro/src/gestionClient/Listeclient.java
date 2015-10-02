@@ -13,12 +13,8 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import java.awt.Color;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.swing.JButton;
-
-import model.Client;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
@@ -26,11 +22,16 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import util.FabriqueSession;
+import model.Client;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.util.Iterator;
+import java.util.List;
 
-public class _Listeclient extends JFrame {
+public class Listeclient extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tableau;
@@ -42,7 +43,7 @@ public class _Listeclient extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					_Listeclient frame = new _Listeclient();
+					Listeclient frame = new Listeclient();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,9 +55,9 @@ public class _Listeclient extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public _Listeclient() {
+	public Listeclient() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 682, 459);
+		setBounds(100, 100, 734, 423);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -65,15 +66,27 @@ public class _Listeclient extends JFrame {
 		JLabel label = new JLabel("Liste des clients");
 		label.setForeground(Color.RED);
 		label.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		label.setBounds(260, 35, 144, 28);
+		label.setBounds(284, 29, 144, 28);
 		contentPane.add(label);
 		
 		JButton button = new JButton("Retour");
-		button.setBounds(140, 270, 89, 23);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Menu frameMenu = new Menu();
+				frameMenu.setVisible(true);
+			}
+		});
+		button.setBounds(186, 253, 89, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Modifier");
-		button_1.setBounds(252, 270, 89, 23);
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Modifierclient frameModifierClient = new Modifierclient();
+				frameModifierClient.setVisible(true);
+			}
+		});
+		button_1.setBounds(298, 253, 89, 23);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Supprimer");
@@ -83,24 +96,30 @@ public class _Listeclient extends JFrame {
 				System.out.println(tableau.getValueAt(tableau.getSelectedRow(), 3));
 			}
 		});
-		button_2.setBounds(351, 270, 89, 23);
+		button_2.setBounds(397, 253, 89, 23);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("Ajouter");
-		button_3.setBounds(465, 270, 89, 23);
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Ajoutclient frameAjoutClient = new Ajoutclient();
+				frameAjoutClient.setVisible(true);
+			}
+		});
+		button_3.setBounds(511, 253, 89, 23);
 		contentPane.add(button_3);
 		
 		int i=0;
 		String[] entetes = {"Nom", "Prénom", "Adresse", "CIN", "Téléphone"};
 		Object[][] donnees = new Object[listerClient().size()][entetes.length];
 		for (Iterator iter = listerClient().iterator(); iter.hasNext();) {
-			Client clt = (Client) iter.next();
-			donnees[i][0] = clt.getNom();
-			donnees[i][1] = clt.getPrenom();
-			donnees[i][2] = clt.getAdresse();
-			donnees[i][3] = clt.getCin();
-			donnees[i][4] = clt.getTel1();
-			i++;
+		Client clt = (Client) iter.next();
+		donnees[i][0] = clt.getNom();
+		donnees[i][1] = clt.getPrenom();
+		donnees[i][2] = clt.getAdresse();
+		donnees[i][3] = clt.getCin();
+		donnees[i][4] = clt.getTel1();
+		i++;
 		}
 		
 		 tableau = new JTable(donnees, entetes);
@@ -109,8 +128,9 @@ public class _Listeclient extends JFrame {
        contentPane.add(tableau.getTableHeader(), BorderLayout.NORTH);
        contentPane.setLayout(null);
        
+//     Ajouter les données
      JScrollPane scrollPane = new JScrollPane(tableau);
-     scrollPane.setBounds(54, 74, 531, 185);
+     scrollPane.setBounds(10, 82, 681, 134);
      contentPane.add(scrollPane);
 	}
 	
