@@ -5,10 +5,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.Color;
+
 import javax.swing.JButton;
 
 public class Listeclient extends JFrame {
@@ -63,5 +67,25 @@ public class Listeclient extends JFrame {
 		JButton button_3 = new JButton("Ajouter");
 		button_3.setBounds(335, 217, 89, 23);
 		contentPane.add(button_3);
+		
+		Object[][] donnees = {
+                {"stouti"},
+                {"stouti"},
+                {"halabi"},
+                {"stouti"},
+                {"halabi"}
+        };
+		
+		String[] entetes = {"Nom"};
+		
+		 JTable tableau = new JTable(donnees, entetes);
+//       Ajouter lentete
+       contentPane.add(tableau.getTableHeader(), BorderLayout.NORTH);
+       contentPane.setLayout(null);
+       
+//     Ajouter les données
+     JScrollPane scrollPane = new JScrollPane(tableau);
+     scrollPane.setBounds(10, 82, 681, 236);
+     contentPane.add(scrollPane);
 	}
 }

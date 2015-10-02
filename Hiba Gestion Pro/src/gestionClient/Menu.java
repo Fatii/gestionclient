@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame {
 
@@ -53,6 +55,12 @@ public class Menu extends JFrame {
 		contentPane.add(btnAjoutDunClient);
 		
 		JButton btnListeDesClients = new JButton("Liste des clients");
+		btnListeDesClients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Listeclient frameListeClient = new Listeclient();
+				frameListeClient.setVisible(true);
+			}
+		});
 		btnListeDesClients.setBounds(28, 117, 117, 23);
 		contentPane.add(btnListeDesClients);
 	}
