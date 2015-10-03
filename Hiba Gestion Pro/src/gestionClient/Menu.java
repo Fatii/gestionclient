@@ -38,16 +38,16 @@ public class Menu extends JFrame {
 	 */
 	public Menu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 652, 373);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblHibaGestionPro = new JLabel("Hiba Gestion Pro");
-		lblHibaGestionPro.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblHibaGestionPro.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblHibaGestionPro.setForeground(Color.RED);
-		lblHibaGestionPro.setBounds(137, 53, 152, 24);
+		lblHibaGestionPro.setBounds(238, 62, 172, 24);
 		contentPane.add(lblHibaGestionPro);
 		
 		JButton btnAjoutDunClient = new JButton("Ajouter un client");
@@ -57,7 +57,7 @@ public class Menu extends JFrame {
 				frameAjoutClient.setVisible(true);
 			}
 		});
-		btnAjoutDunClient.setBounds(264, 117, 140, 23);
+		btnAjoutDunClient.setBounds(366, 149, 140, 23);
 		contentPane.add(btnAjoutDunClient);
 		
 		JButton btnListeDesClients = new JButton("Liste des clients");
@@ -67,7 +67,7 @@ public class Menu extends JFrame {
 				frameListeClient.setVisible(true);
 			}
 		});
-		btnListeDesClients.setBounds(44, 117, 140, 23);
+		btnListeDesClients.setBounds(146, 149, 140, 23);
 		contentPane.add(btnListeDesClients);
 	}
 

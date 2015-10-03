@@ -25,13 +25,17 @@ import util.FabriqueSession;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.JProgressBar;
+import javax.swing.DropMode;
 
 public class Ajoutclient extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tNom;
 	private JTextField tPrenom;
-	private JTextField tAdresse;
+	private JTextArea tAdresse;
 	private JTextField tCin;
 	private JTextField tTel1;
 	private JTextField tTel2;
@@ -58,16 +62,16 @@ public class Ajoutclient extends JFrame {
 	 */
 	public Ajoutclient() {
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 652, 372);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblAjoutDunClient = new JLabel("Ajout d'un client");
-		lblAjoutDunClient.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblAjoutDunClient.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblAjoutDunClient.setForeground(Color.RED);
-		lblAjoutDunClient.setBounds(132, 11, 146, 26);
+		lblAjoutDunClient.setBounds(229, 11, 164, 26);
 		contentPane.add(lblAjoutDunClient);
 		
 		JLabel lblNom = new JLabel("Nom :");
@@ -75,61 +79,60 @@ public class Ajoutclient extends JFrame {
 		contentPane.add(lblNom);
 		
 		JLabel lblPrnom = new JLabel("Pr\u00E9nom :");
-		lblPrnom.setBounds(27, 106, 46, 14);
+		lblPrnom.setBounds(27, 106, 59, 14);
 		contentPane.add(lblPrnom);
 		
 		JLabel lblAdresse = new JLabel("Adresse :");
-		lblAdresse.setBounds(27, 146, 46, 14);
+		lblAdresse.setBounds(27, 146, 59, 14);
 		contentPane.add(lblAdresse);
 		
 		JLabel lblCin = new JLabel("CIN :");
-		lblCin.setBounds(27, 188, 46, 14);
+		lblCin.setBounds(27, 278, 46, 14);
 		contentPane.add(lblCin);
 		
 		JLabel lblTlphone = new JLabel("T\u00E9l\u00E9phone 1 :");
-		lblTlphone.setBounds(235, 68, 79, 14);
+		lblTlphone.setBounds(373, 71, 79, 14);
 		contentPane.add(lblTlphone);
 		
 		JLabel lblTlphone_1 = new JLabel("T\u00E9l\u00E9phone 2 :");
-		lblTlphone_1.setBounds(235, 106, 79, 14);
+		lblTlphone_1.setBounds(373, 109, 79, 14);
 		contentPane.add(lblTlphone_1);
 		
 		JLabel lblTlphone_2 = new JLabel("T\u00E9l\u00E9phone 3 :");
-		lblTlphone_2.setBounds(235, 146, 79, 14);
+		lblTlphone_2.setBounds(373, 149, 79, 14);
 		contentPane.add(lblTlphone_2);
 		
 		tNom = new JTextField();
-		tNom.setBounds(83, 65, 86, 20);
+		tNom.setBounds(109, 68, 187, 20);
 		contentPane.add(tNom);
 		tNom.setColumns(10);
 		
 		tPrenom = new JTextField();
-		tPrenom.setBounds(83, 103, 86, 20);
+		tPrenom.setBounds(109, 106, 187, 20);
 		contentPane.add(tPrenom);
 		tPrenom.setColumns(10);
 		
-		tAdresse = new JTextField();
-		tAdresse.setBounds(83, 143, 86, 20);
+		tAdresse = new JTextArea();
+		tAdresse.setBounds(109, 141, 187, 124);
 		contentPane.add(tAdresse);
-		tAdresse.setColumns(10);
 		
 		tCin = new JTextField();
-		tCin.setBounds(83, 185, 86, 20);
+		tCin.setBounds(109, 275, 187, 20);
 		contentPane.add(tCin);
 		tCin.setColumns(10);
 		
 		tTel1 = new JTextField();
-		tTel1.setBounds(324, 65, 86, 20);
+		tTel1.setBounds(462, 68, 154, 20);
 		contentPane.add(tTel1);
 		tTel1.setColumns(10);
 		
 		tTel2 = new JTextField();
-		tTel2.setBounds(324, 103, 86, 20);
+		tTel2.setBounds(462, 106, 154, 20);
 		contentPane.add(tTel2);
 		tTel2.setColumns(10);
 		
 		tTel3 = new JTextField();
-		tTel3.setBounds(324, 143, 86, 20);
+		tTel3.setBounds(462, 146, 154, 20);
 		contentPane.add(tTel3);
 		tTel3.setColumns(10);
 		
@@ -156,7 +159,7 @@ public class Ajoutclient extends JFrame {
 				
 			}
 		});
-		btnAjouter.setBounds(269, 216, 89, 23);
+		btnAjouter.setBounds(451, 259, 97, 23);
 		contentPane.add(btnAjouter);
 	}
 	

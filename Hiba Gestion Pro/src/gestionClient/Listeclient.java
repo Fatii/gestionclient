@@ -57,7 +57,7 @@ public class Listeclient extends JFrame {
 	 */
 	public Listeclient() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 734, 423);
+		setBounds(100, 100, 652, 373);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -65,8 +65,8 @@ public class Listeclient extends JFrame {
 		
 		JLabel label = new JLabel("Liste des clients");
 		label.setForeground(Color.RED);
-		label.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		label.setBounds(284, 29, 144, 28);
+		label.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		label.setBounds(227, 29, 173, 28);
 		contentPane.add(label);
 		
 		JButton button = new JButton("Retour");
@@ -76,7 +76,7 @@ public class Listeclient extends JFrame {
 				frameMenu.setVisible(true);
 			}
 		});
-		button.setBounds(69, 253, 89, 23);
+		button.setBounds(65, 253, 97, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Modifier");
@@ -86,7 +86,7 @@ public class Listeclient extends JFrame {
 				frameModifierClient.setVisible(true);
 			}
 		});
-		button_1.setBounds(198, 253, 89, 23);
+		button_1.setBounds(201, 253, 97, 23);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Supprimer");
@@ -96,7 +96,7 @@ public class Listeclient extends JFrame {
 				System.out.println(tableau.getValueAt(tableau.getSelectedRow(), 3));
 			}
 		});
-		button_2.setBounds(324, 253, 104, 23);
+		button_2.setBounds(329, 253, 97, 23);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("Ajouter");
@@ -106,7 +106,7 @@ public class Listeclient extends JFrame {
 				frameAjoutClient.setVisible(true);
 			}
 		});
-		button_3.setBounds(476, 253, 89, 23);
+		button_3.setBounds(462, 253, 97, 23);
 		contentPane.add(button_3);
 		
 		int i=0;
@@ -130,7 +130,7 @@ public class Listeclient extends JFrame {
        
 //     Ajouter les données
      JScrollPane scrollPane = new JScrollPane(tableau);
-     scrollPane.setBounds(10, 82, 681, 134);
+     scrollPane.setBounds(10, 82, 616, 134);
      contentPane.add(scrollPane);
 	}
 	
