@@ -57,5 +57,22 @@ public String getTel3() {
 public void setTel3(String tel3) {
 	this.tel3 = tel3;
 }
+public Client(int id, String nom, String prenom, String adresse, String cin,
+		String tel1, String tel2, String tel3) {
+	super();
+	this.id = id;
+	this.nom = nom;
+	this.prenom = prenom;
+	this.adresse = adresse;
+	this.cin = cin;
+	this.tel1 = tel1;
+	this.tel2 = tel2;
+	this.tel3 = tel3;
+}
+public Client(int id) {
+	super();
+	this.id = id;
+}
+
 
 }
