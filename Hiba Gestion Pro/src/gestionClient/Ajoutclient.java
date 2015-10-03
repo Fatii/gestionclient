@@ -30,12 +30,12 @@ public class Ajoutclient extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tNom;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField tPrenom;
+	private JTextField tAdresse;
+	private JTextField tCin;
+	private JTextField tTel1;
+	private JTextField tTel2;
+	private JTextField tTel3;
 
 	/**
 	 * Launch the application.
@@ -103,35 +103,35 @@ public class Ajoutclient extends JFrame {
 		contentPane.add(tNom);
 		tNom.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(83, 103, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		tPrenom = new JTextField();
+		tPrenom.setBounds(83, 103, 86, 20);
+		contentPane.add(tPrenom);
+		tPrenom.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(83, 143, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		tAdresse = new JTextField();
+		tAdresse.setBounds(83, 143, 86, 20);
+		contentPane.add(tAdresse);
+		tAdresse.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(83, 185, 86, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		tCin = new JTextField();
+		tCin.setBounds(83, 185, 86, 20);
+		contentPane.add(tCin);
+		tCin.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(324, 65, 86, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		tTel1 = new JTextField();
+		tTel1.setBounds(324, 65, 86, 20);
+		contentPane.add(tTel1);
+		tTel1.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(324, 103, 86, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		tTel2 = new JTextField();
+		tTel2.setBounds(324, 103, 86, 20);
+		contentPane.add(tTel2);
+		tTel2.setColumns(10);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(324, 143, 86, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
+		tTel3 = new JTextField();
+		tTel3.setBounds(324, 143, 86, 20);
+		contentPane.add(tTel3);
+		tTel3.setColumns(10);
 		
 		JButton btnAjouter = new JButton("Ajouter");
 		btnAjouter.addActionListener(new ActionListener() {
@@ -139,6 +139,12 @@ public class Ajoutclient extends JFrame {
 				 int res = JOptionPane.showConfirmDialog(null, "Etes vous sur d'ajouter ce client", "Confirmation", JOptionPane.YES_NO_OPTION);				    
 				    if(res == 0){
 				    	String nom = tNom.getText().toString();
+				    	String prenom = tPrenom.getText().toString();
+				    	String adresse = tAdresse.getText().toString();
+				    	String cin = tCin.getText().toString();
+				    	String tel1 = tTel1.getText().toString();
+				    	String tel2 = tTel2.getText().toString();
+				    	String tel3 = tTel3.getText().toString();
 				    	Client clt = new Client();
 				    	creerClient(clt);
 				    	Listeclient frameListeClient = new Listeclient();
