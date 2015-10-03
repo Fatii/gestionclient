@@ -92,11 +92,8 @@ public class Listeclient extends JFrame {
 		JButton button_2 = new JButton("Supprimer");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(tableau.getSelectedRow() != -1) {
-				Client clt = new Client();
-				clt.setCin((String)tableau.getValueAt(tableau.getSelectedRow(), 3));
-				SupprimerClient(clt);
-			}
+				if(tableau.getSelectedRow() != -1)
+				System.out.println(tableau.getValueAt(tableau.getSelectedRow(), 3));
 			}
 		});
 		button_2.setBounds(324, 253, 104, 23);
@@ -159,26 +156,4 @@ public class Listeclient extends JFrame {
 		}
 		return clients;
 	}
-	
-	private static void SupprimerClient(Client clt) {
-		Transaction tx = null;
-		Session session = FabriqueSession.getInstance().getCurrentSession();
-		try {
-			tx = session.beginTransaction();
-			session.delete(clt);
-			tx.commit();
-		} catch (RuntimeException e) {
-			if (tx != null && tx.isActive()) {
-				try {
-					// Second try catch as the rollback could fail as well
-					tx.rollback();
-				} catch (HibernateException e1) {
-					e.printStackTrace();
-				}
-				// throw again the first exception
-				throw e;
-			}
-		}
-	}
-
 }
