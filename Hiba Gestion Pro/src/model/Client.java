@@ -57,10 +57,9 @@ public String getTel3() {
 public void setTel3(String tel3) {
 	this.tel3 = tel3;
 }
-public Client(int id, String nom, String prenom, String adresse, String cin,
+public Client(String nom, String prenom, String adresse, String cin,
 		String tel1, String tel2, String tel3) {
 	super();
-	this.id = id;
 	this.nom = nom;
 	this.prenom = prenom;
 	this.adresse = adresse;
@@ -72,6 +71,9 @@ public Client(int id, String nom, String prenom, String adresse, String cin,
 public Client(int id) {
 	super();
 	this.id = id;
+}
+public Client() {
+	super();
 }
 
 

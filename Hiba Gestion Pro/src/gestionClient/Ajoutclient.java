@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
@@ -28,7 +29,7 @@ import java.awt.event.ActionEvent;
 public class Ajoutclient extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField tNom;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -97,10 +98,10 @@ public class Ajoutclient extends JFrame {
 		lblTlphone_2.setBounds(235, 146, 79, 14);
 		contentPane.add(lblTlphone_2);
 		
-		textField = new JTextField();
-		textField.setBounds(83, 65, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		tNom = new JTextField();
+		tNom.setBounds(83, 65, 86, 20);
+		contentPane.add(tNom);
+		tNom.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(83, 103, 86, 20);
@@ -135,9 +136,18 @@ public class Ajoutclient extends JFrame {
 		JButton btnAjouter = new JButton("Ajouter");
 		btnAjouter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				 int res = JOptionPane.showConfirmDialog(null, "Etes vous sur d'ajouter ce client", "Confirmation", JOptionPane.YES_NO_OPTION);				    
+				    if(res == 0){
+				    	String nom = tNom.getText().toString();
+				    	Client clt = new Client();
+				    	creerClient(clt);
+				    	Listeclient frameListeClient = new Listeclient();
+						frameListeClient.setVisible(true);
+				    }else if(res == -1) {
+				    	Listeclient frameListeClient = new Listeclient();
+						frameListeClient.setVisible(true);
+				    }
 				
-				Listeclient frameListeClient = new Listeclient();
-				frameListeClient.setVisible(true);
 			}
 		});
 		btnAjouter.setBounds(269, 216, 89, 23);
